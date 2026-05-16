@@ -1,0 +1,191 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {"name": "_feeRecipient", "type": "address"},
+      {"name": "_resultSigner", "type": "address"},
+      {"name": "_baseUsdc", "type": "address"}
+    ]
+  },
+  {
+    "type": "function",
+    "name": "createDuel",
+    "inputs": [
+      {"name": "duelId", "type": "bytes32"},
+      {"name": "player2", "type": "address"},
+      {"name": "token", "type": "address"},
+      {"name": "stakeAmount", "type": "uint256"},
+      {"name": "game", "type": "string"},
+      {"name": "joinDeadline", "type": "uint64"},
+      {"name": "resultDeadline", "type": "uint64"}
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "joinDuel",
+    "inputs": [{"name": "duelId", "type": "bytes32"}],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "cancelDuel",
+    "inputs": [{"name": "duelId", "type": "bytes32"}],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "refundExpiredDuel",
+    "inputs": [{"name": "duelId", "type": "bytes32"}],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "submitResult",
+    "inputs": [
+      {"name": "duelId", "type": "bytes32"},
+      {"name": "winner", "type": "address"},
+      {"name": "resultHash", "type": "bytes32"},
+      {"name": "deadline", "type": "uint256"},
+      {"name": "signature", "type": "bytes"}
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "forfeit",
+    "inputs": [{"name": "duelId", "type": "bytes32"}],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "refundUnresolvedDuel",
+    "inputs": [{"name": "duelId", "type": "bytes32"}],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getDuel",
+    "inputs": [{"name": "duelId", "type": "bytes32"}],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "components": [
+          {"name": "player1", "type": "address"},
+          {"name": "player2", "type": "address"},
+          {"name": "token", "type": "address"},
+          {"name": "stakeAmount", "type": "uint256"},
+          {"name": "totalPot", "type": "uint256"},
+          {"name": "game", "type": "string"},
+          {"name": "joinDeadline", "type": "uint64"},
+          {"name": "resultDeadline", "type": "uint64"},
+          {"name": "status", "type": "uint8"},
+          {"name": "winner", "type": "address"},
+          {"name": "feePaid", "type": "bool"}
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "activeDuelOf",
+    "inputs": [{"name": "player", "type": "address"}],
+    "outputs": [{"name": "", "type": "bytes32"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "domainSeparator",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "bytes32"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "FEE_BPS",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "uint256"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "baseUsdc",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "address"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "feeRecipient",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "address"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "resultSigner",
+    "inputs": [],
+    "outputs": [{"name": "", "type": "address"}],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "DuelCreated",
+    "inputs": [
+      {"name": "duelId", "type": "bytes32", "indexed": true},
+      {"name": "player1", "type": "address", "indexed": true},
+      {"name": "player2", "type": "address", "indexed": false},
+      {"name": "token", "type": "address", "indexed": false},
+      {"name": "stakeAmount", "type": "uint256", "indexed": false},
+      {"name": "game", "type": "string", "indexed": false},
+      {"name": "joinDeadline", "type": "uint64", "indexed": false},
+      {"name": "resultDeadline", "type": "uint64", "indexed": false}
+    ]
+  },
+  {
+    "type": "event",
+    "name": "DuelJoined",
+    "inputs": [
+      {"name": "duelId", "type": "bytes32", "indexed": true},
+      {"name": "player2", "type": "address", "indexed": true}
+    ]
+  },
+  {
+    "type": "event",
+    "name": "DuelResolved",
+    "inputs": [
+      {"name": "duelId", "type": "bytes32", "indexed": true},
+      {"name": "winner", "type": "address", "indexed": true},
+      {"name": "payout", "type": "uint256", "indexed": false},
+      {"name": "fee", "type": "uint256", "indexed": false}
+    ]
+  },
+  {
+    "type": "event",
+    "name": "DuelCancelled",
+    "inputs": [{"name": "duelId", "type": "bytes32", "indexed": true}]
+  },
+  {
+    "type": "event",
+    "name": "DuelRefunded",
+    "inputs": [{"name": "duelId", "type": "bytes32", "indexed": true}]
+  },
+  {
+    "type": "event",
+    "name": "DuelForfeited",
+    "inputs": [
+      {"name": "duelId", "type": "bytes32", "indexed": true},
+      {"name": "forfeiter", "type": "address", "indexed": true},
+      {"name": "winner", "type": "address", "indexed": true}
+    ]
+  }
+]

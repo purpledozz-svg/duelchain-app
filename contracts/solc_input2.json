@@ -1,0 +1,1 @@
+{"language":"Solidity","sources":{"contracts/src/DuelEscrow.sol":{"urls":["contracts/src/DuelEscrow.sol"]}},"settings":{"optimizer":{"enabled":true,"runs":10000},"evmVersion":"cancun","outputSelection":{"contracts/src/DuelEscrow.sol":{"DuelEscrow":["abi","evm.bytecode.object"]}}}}

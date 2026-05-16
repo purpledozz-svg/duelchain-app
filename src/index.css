@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    background: #07090D;
+    color: #F7FAFF;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(77, 235, 255, 0.28);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #07090D;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4DEBFF, #38F5B3);
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #4DEBFF 0%, #38F5B3 50%, #FF5F8F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .duel-gradient {
+    background: linear-gradient(135deg, #B026FF 0%, #FF267A 55%, #FF4040 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 14px 50px rgba(0,0,0,0.5), 0 0 32px rgba(176,38,255,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #FF9F43, #FF5F8F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-glow-white {
+    text-shadow: 0 0 28px rgba(247, 250, 255, 0.35), 0 2px 18px rgba(0, 0, 0, 0.6);
+  }
+
+  .bg-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .bg-glass-strong {
+    background: rgba(16, 20, 27, 0.72);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .bg-glass-nav {
+    background: rgba(7, 9, 13, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-button-primary {
+    background: linear-gradient(135deg, rgba(77, 235, 255, 0.22), rgba(56, 245, 179, 0.16), rgba(255, 95, 143, 0.14));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 30px rgba(77, 235, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .glass-button-primary:hover {
+    box-shadow: 0 0 44px rgba(77, 235, 255, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .glass-button-secondary {
+    background: rgba(16, 20, 27, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .glass-button-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
+  }
+
+  .spline-brighten iframe {
+    filter: brightness(1.35) contrast(1.05) saturate(1.12);
+  }
+
+  .glow-border {
+    position: relative;
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #4DEBFF, #38F5B3, #FF5F8F);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
